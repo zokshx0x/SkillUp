@@ -1,0 +1,276 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SkillUp Educational Platform Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* SkillUp Brand Colors - Modern Blue Palette */
+    --background: 0 0% 100%;
+    --foreground: 215 25% 27%;
+    
+    /* Educational Blue Theme */
+    --primary: 213 93% 68%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 213 100% 85%;
+    --primary-dark: 213 93% 50%;
+    
+    /* Secondary Colors */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 215 25% 27%;
+    --secondary-dark: 220 14% 90%;
+    
+    /* Accent Colors */
+    --accent: 213 93% 68%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 213 100% 92%;
+    
+    /* Muted Colors */
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 13% 65%;
+    
+    /* Card & Surface Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+    --card-hover: 220 14% 98%;
+    
+    /* Interactive Elements */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 213 93% 68%;
+    
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Educational Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(213 93% 68%), hsl(213 93% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(213 93% 68%) 0%, hsl(220 100% 80%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px hsl(213 93% 68% / 0.05);
+    --shadow-md: 0 4px 6px hsl(213 93% 68% / 0.07);
+    --shadow-lg: 0 10px 15px hsl(213 93% 68% / 0.1);
+    --shadow-xl: 0 20px 25px hsl(213 93% 68% / 0.15);
+    --shadow-card: 0 4px 20px hsl(213 93% 68% / 0.08);
+    --shadow-card-hover: 0 8px 30px hsl(213 93% 68% / 0.12);
+    
+    /* Border Radius */
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --radius-lg: 1rem;
+    
+    /* Spacing & Sizing */
+    --header-height: 4rem;
+    --max-width: 1200px;
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+
+  /* RTL Support */
+  .rtl {
+    direction: rtl;
+  }
+  
+  .ltr {
+    direction: ltr;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  /* RTL Body Support */
+  body.rtl {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  body.ltr {
+    direction: ltr;
+    text-align: left;
+  }
+}
+
+@layer components {
+  /* Educational Button Variants */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground px-8 py-4 rounded-radius-lg font-semibold;
+    @apply shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+    @apply transition-all duration-300 ease-out;
+    background: var(--gradient-primary);
+  }
+  
+  .btn-secondary-outline {
+    @apply border-2 border-primary text-primary bg-transparent px-6 py-3 rounded-radius;
+    @apply font-medium hover:bg-primary hover:text-primary-foreground;
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  /* Course Card Styles */
+  .course-card {
+    @apply bg-card border border-border rounded-radius-lg overflow-hidden;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-card-hover hover:-translate-y-2;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+  
+  .course-card:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+  
+  /* Hero Section */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  /* Navigation Styles */
+  .nav-link {
+    @apply text-foreground/80 hover:text-primary font-medium;
+    @apply transition-colors duration-200 ease-out;
+    @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5;
+    @apply after:bg-primary after:transition-all after:duration-300;
+    @apply hover:after:w-full;
+  }
+  
+  .nav-link.active {
+    @apply text-primary after:w-full;
+  }
+  
+  /* Language Switcher */
+  .lang-switcher {
+    @apply bg-secondary text-secondary-foreground px-3 py-1.5 rounded-radius-sm;
+    @apply font-medium transition-all duration-200 ease-out;
+    @apply hover:bg-secondary-dark;
+  }
+  
+  /* Form Styles */
+  .form-input {
+    @apply w-full px-4 py-3 border border-input rounded-radius;
+    @apply bg-background text-foreground placeholder:text-muted-foreground;
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent;
+    @apply transition-all duration-200 ease-out;
+  }
+  
+  .form-textarea {
+    @apply form-input resize-none min-h-[120px];
+  }
+  
+  /* Utility Classes */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent;
+  }
+  
+  /* Animation Classes */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+}
+
+@layer utilities {
+  /* Custom Keyframes */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* RTL Utilities */
+  .rtl .text-right {
+    text-align: right;
+  }
+  
+  .rtl .text-left {
+    text-align: left;
+  }
+  
+  .rtl .mr-auto {
+    margin-right: auto;
+    margin-left: unset;
+  }
+  
+  .rtl .ml-auto {
+    margin-left: auto;
+    margin-right: unset;
+  }
+}
